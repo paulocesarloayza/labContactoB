@@ -27,6 +27,7 @@
         {
             this.apiService = new ApiService();
             this.LoadContacts();
+            
         }
         #endregion
 
@@ -45,7 +46,7 @@
             }
 
             var response = await this.apiService.GetList<Contact>(
-                        "http://localhost:50048/",
+                        "https://apicontactsi220.azurewebsites.net/",
                         "api/",
                         "Contacts");
             if (!response.IsSuccess)
@@ -62,7 +63,8 @@
             mainViewModel.ContactList = (List<Contact>)response.Result;
 
             this.Contacts = new ObservableCollection<Contact>(this.ToContactView());
-
+            
+            
         }
 
         private IEnumerable<Contact> ToContactView()
@@ -82,5 +84,6 @@
         }
         #endregion
 
+       
     }
 }

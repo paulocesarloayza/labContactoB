@@ -3,14 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="appContacto.Views.ListViewContact">
-        <ListView x:Name="MyListView"
+    <StackLayout Margin="2">
+        <Label Text="Hola"  FontAttributes="Bold" />
+    <ListView x:Name="MyListView"
               ItemsSource="{Binding Contacts}"
               CachingStrategy="RecycleElement">
     
           <ListView.ItemTemplate>
               <DataTemplate>
-                  <TextCell Text="{Binding Name}" />
-              </DataTemplate>
+                  <!--TextCell Text="{Binding Name}" /-->
+                <StackLayout Margin="8">
+
+                    <Label Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                    <Label Text="{Binding ContactValue}" />
+                </StackLayout>
+
+            </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
+    </StackLayout>
 </ContentPage>
